@@ -5,7 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RFQ {
 	public static void main(String [] args) throws InterruptedException {
@@ -22,7 +24,7 @@ public class RFQ {
 	    driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
 	    driver.findElement(By.xpath("//b[normalize-space()='CREATE RFQ']")).click();
 	    
-	    driver.findElement(By.xpath("//input[@id='tenderTitle']")).sendKeys("Books12");
+	    driver.findElement(By.xpath("//input[@id='tenderTitle']")).sendKeys("pentaa");
 	    WebElement curr=driver.findElement(By.xpath("//select[@id='tenderCurrency']"));
 	    Select currency=new Select(curr);
 	    currency.selectByVisibleText("INR");
@@ -92,8 +94,8 @@ public class RFQ {
 	    driver.findElement(By.xpath("//button[text()='Add']")).click();
 	    driver.findElement(By.xpath("//input[@onclick=\"return getDates();\"]")).click();
 	    
-	    driver.findElement(By.xpath("//input[@name=\"startBidSubmissionDate\"]")).sendKeys("09-04-2025 18:30:00");
-	    driver.findElement(By.xpath("//input[@name=\"endBidSubmissionDate\"]")).sendKeys("09-04-2025 19:00:00");
+	    driver.findElement(By.xpath("//input[@id=\"startBidSubmissionDate\"]")).sendKeys("10-04-2025 18:30:00");
+	    driver.findElement(By.xpath("//input[@id=\"endBidSubmissionDate\"]")).sendKeys("10-04-2025 18:31:00");
 	    driver.findElement(By.xpath("//button[@onclick=\"goToSave();\"]")).click();
 	    
 	    driver.findElement(By.xpath("//textarea[@id=\"comments\"]")).sendKeys("abcd");
@@ -104,17 +106,50 @@ public class RFQ {
 	    
 	    driver.findElement(By.xpath("//button[text()='Close']")).click();
 	    
+	   // driver.findElement(By.xpath("//span[@class=\"fa fa-home\"]")).click();
+	   // driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
+	    driver.findElement(By.xpath("(//span[@class=\"title\"])[3]")).click();
+	    driver.findElement(By.xpath("//tbody//tr//td[text()='pentaa']/../td[8]/a")).click();
+	    driver.findElement(By.xpath("//button[@onclick=\"getAdendumPage1();\"]")).click();
+	    driver.findElement(By.xpath("//label[text()='Edit Dates']")).click();
+	    driver.findElement(By.xpath("//button[@onclick=\"proceed();\"]")).click();
+	  //  driver.findElement(By.xpath("//input[@name=\"endBidSubmissionDate\"]")).sendKeys("10-04-2025 17:18:00");
+	    driver.findElement(By.xpath("//textarea[@name=\"comment\"]")).sendKeys("ABCD");
+	    driver.findElement(By.xpath("//button[text()='Raise Addendum']")).click();
+	    
+	    driver.findElement(By.xpath("//button[text()='Close']")).click();
+	    driver.get("https://training1.effigo.in/upeg/");
+	    driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
+	    driver.findElement(By.xpath("(//span[@class=\"title\"])[9]")).click();
+	    driver.findElement(By.xpath("//tbody//..//td[text()='pentaa']/../td[5]/a")).click();
+	   // WebElement ele=driver.findElement(By.xpath("//input[@name=\"endBidSubmissionDate\"]"));
+	   // ele.clear();
+	    //driver.findElement(By.xpath("//input[@name=\"endBidSubmissionDate\"]")).sendKeys("10-04-2025 17:23:00");
+	    driver.findElement(By.xpath("//textarea[@id=\"comment\"]")).sendKeys("abcd");
+
+	    
+	    driver.findElement(By.xpath("//button[@onclick=\"approveAddendum();\"]")).click();
+	    Alert alltt=driver.switchTo().alert();
+	   System.out.println("The alert msg : "+ alltt.getText());
+	    alltt.accept();
 	    
 	        driver.get("https://training1.effigo.in/portal/");
 	        driver.findElement(By.xpath("//input[@id='userNameId']")).sendKeys("deeya@gmail.com");
 	        driver.findElement(By.xpath("//input[@id='passwordId']")).sendKeys("Bob@1234");
 	        driver.findElement(By.xpath("//input[@id='sighInId']")).click();
 	        
-	        Alert altt=driver.switchTo().alert();
-		    altt.accept();
+	        Alert alt1=driver.switchTo().alert();
+		    alt1.accept();
+		    
 	        driver.findElement(By.xpath("//div[text()='NEW']")).click();
-	        driver.findElement(By.xpath("(//a[@title='View All Work Items'])[1]")).click();
-	        driver.findElement(By.xpath("//label[@for='check0']")).click();
+	        Thread.sleep(15000);
+	        driver.findElement(By.xpath("//tbody//tr//td[text()='pentaa']/../td[4]//a")).click();
+	        driver.findElement(By.xpath("//label[@for=\"check0\"]")).click();
+	        
+	        
+
+
+	       // driver.findElement(By.xpath("//label[@for='check0']")).click();
 	        driver.findElement(By.xpath("//label[@onclick=\"checkedTermsAndCondition();\"]")).click();
 	        driver.findElement(By.xpath("//button[@id='payAndAccept']")).click();
 	        driver.findElement(By.xpath("//button[@id='proceed']")).click();
@@ -130,36 +165,61 @@ public class RFQ {
 	        driver.findElement(By.xpath("(//button[text()='Close'])[2]")).click();
 	        driver.findElement(By.xpath("//button[text()='Submit']")).click();
 	        driver.findElement(By.xpath("//button[@id='closeBtn']")).click();
-	        driver.findElement(By.xpath("(//button[text()='Close'])[6]")).click();
+	        //driver.findElement(By.xpath("(//button[text()='Close'])[11]")).click();
 	        
 	        
 	        
-	        driver.get("https://training1.effigo.in/upeg/");
-			driver.findElement(By.xpath("//input[@id='userNameId']")).sendKeys("Aarav");
-		    driver.findElement(By.xpath("//input[@id='passwordId']")).sendKeys("Bob@1234");
-		    driver.findElement(By.xpath("//input[@id='sighInId']")).click();
-		    driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
+	       // driver.get("https://training1.effigo.in/upeg/");
+//			driver.findElement(By.xpath("//input[@id='userNameId']")).sendKeys("Aarav");
+//		    driver.findElement(By.xpath("//input[@id='passwordId']")).sendKeys("Bob@1234");
+//		    driver.findElement(By.xpath("//input[@id='sighInId']")).click();
+		    /*driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
 		    driver.findElement(By.xpath("(//span[@class=\"title\"])[3]")).click();
-		    driver.findElement(By.xpath("(//a[text()='View'])[3]")).click();
+		    driver.findElement(By.xpath("//tbody//tr//td[text()='pentaa']/../td[8]/a")).click();
 		    driver.findElement(By.xpath("//button[@onclick=\"getAdendumPage1();\"]")).click();
 		    driver.findElement(By.xpath("//label[text()='Edit Dates']")).click();
 		    driver.findElement(By.xpath("//button[@onclick=\"proceed();\"]")).click();
-		    driver.findElement(By.xpath("//input[@name=\"endBidSubmissionDate\"]")).sendKeys("09-04-2025 18:40:00");
+		    driver.findElement(By.xpath("//input[@name=\"endBidSubmissionDate\"]")).sendKeys("10-04-2025 17:18:00");
 		    driver.findElement(By.xpath("//textarea[@name=\"comment\"]")).sendKeys("ABCD");
 		    driver.findElement(By.xpath("//button[text()='Raise Addendum']")).click();
+		    
 		    driver.findElement(By.xpath("//button[text()='Close']")).click();
-		    driver.findElement(By.xpath("//a[@onclick=\"startCommercial('3');\"]")).click();
+		    driver.get("https://training1.effigo.in/upeg/");
+		    driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
+		    driver.findElement(By.xpath("(//span[@class=\"title\"])[9]")).click();
+		    driver.findElement(By.xpath("//tbody//..//td[text()='pentaa']/../td[5]/a")).click();
+		    WebElement ele=driver.findElement(By.xpath("//input[@name=\"endBidSubmissionDate\"]"));
+		    ele.clear();
+		    driver.findElement(By.xpath("//input[@name=\"endBidSubmissionDate\"]")).sendKeys("10-04-2025 17:23:00");
+		    driver.findElement(By.xpath("//textarea[@id=\"comment\"]")).sendKeys("abcd");
+	
+		    
+		    driver.findElement(By.xpath("//button[@onclick=\"approveAddendum();\"]")).click();
 		    Alert alltt=driver.switchTo().alert();
-		    alltt.accept();
-		    driver.findElement(By.xpath("(//span[@class='fa fa-thumbs-up'])[2]")).click();
-		    driver.findElement(By.xpath("//textarea[@id=\"priceAcceptComments\"]")).sendKeys("acds");
-		    driver.findElement(By.xpath("//button[@id=\"priceAcceptBtn\"]")).click();
-		    Alert allttt=driver.switchTo().alert();
-		    allttt.accept();
-		    driver.findElement(By.xpath("//a[@onclick=\"stopCommercial('4');\"]")).click();
-		    Alert alllttt=driver.switchTo().alert();
-		    alllttt.accept();
-		    driver.findElement(By.xpath("(//button[text()='Close'])[2]")).click();
+		   System.out.println("The alert msg : "+ alltt.getText());
+		    alltt.accept();*/
+		    driver.get("https://training1.effigo.in/upeg/");
+		    driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
+		    driver.findElement(By.xpath("(//span[@class=\"title\"])[3]")).click();
+		    driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
+		    driver.findElement(By.xpath("(//span[@class=\"title\"])[3]")).click();
+		    driver.findElement(By.xpath("//tbody//tr//td[text()='pentaa']/../td[8]/a")).click();
+		    
+		    
+		    
+		    
+		    driver.findElement(By.xpath("//a[@onclick=\"startCommercial('3');\"]")).click();
+//		    Alert alltt=driver.switchTo().alert();
+//		    alltt.accept();
+//		    driver.findElement(By.xpath("(//span[@class='fa fa-thumbs-up'])[2]")).click();
+//		    driver.findElement(By.xpath("//textarea[@id=\"priceAcceptComments\"]")).sendKeys("acds");
+//		    driver.findElement(By.xpath("//button[@id=\"priceAcceptBtn\"]")).click();
+//		    Alert allttt=driver.switchTo().alert();
+//		    allttt.accept();
+//		    driver.findElement(By.xpath("//a[@onclick=\"stopCommercial('4');\"]")).click();
+//		    Alert alllttt=driver.switchTo().alert();
+//		    alllttt.accept();
+//		    driver.findElement(By.xpath("(//button[text()='Close'])[2]")).click();
 		    
 		    
 		    
