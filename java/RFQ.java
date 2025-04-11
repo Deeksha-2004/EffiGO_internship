@@ -24,7 +24,7 @@ public class RFQ {
 	    driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
 	    driver.findElement(By.xpath("//b[normalize-space()='CREATE RFQ']")).click();
 	    
-	    driver.findElement(By.xpath("//input[@id='tenderTitle']")).sendKeys("pentaa");
+	    driver.findElement(By.xpath("//input[@id='tenderTitle']")).sendKeys("phone12345");
 	    WebElement curr=driver.findElement(By.xpath("//select[@id='tenderCurrency']"));
 	    Select currency=new Select(curr);
 	    currency.selectByVisibleText("INR");
@@ -94,8 +94,8 @@ public class RFQ {
 	    driver.findElement(By.xpath("//button[text()='Add']")).click();
 	    driver.findElement(By.xpath("//input[@onclick=\"return getDates();\"]")).click();
 	    
-	    driver.findElement(By.xpath("//input[@id=\"startBidSubmissionDate\"]")).sendKeys("10-04-2025 18:30:00");
-	    driver.findElement(By.xpath("//input[@id=\"endBidSubmissionDate\"]")).sendKeys("10-04-2025 18:31:00");
+	    driver.findElement(By.xpath("//input[@id=\"startBidSubmissionDate\"]")).sendKeys("11-04-2025 11:24:00");
+	    driver.findElement(By.xpath("//input[@id=\"endBidSubmissionDate\"]")).sendKeys("11-04-2025 11:25:00");
 	    driver.findElement(By.xpath("//button[@onclick=\"goToSave();\"]")).click();
 	    
 	    driver.findElement(By.xpath("//textarea[@id=\"comments\"]")).sendKeys("abcd");
@@ -109,7 +109,7 @@ public class RFQ {
 	   // driver.findElement(By.xpath("//span[@class=\"fa fa-home\"]")).click();
 	   // driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
 	    driver.findElement(By.xpath("(//span[@class=\"title\"])[3]")).click();
-	    driver.findElement(By.xpath("//tbody//tr//td[text()='pentaa']/../td[8]/a")).click();
+	    driver.findElement(By.xpath("//tbody//tr//td[text()='phone12345']/../td[8]/a")).click();
 	    driver.findElement(By.xpath("//button[@onclick=\"getAdendumPage1();\"]")).click();
 	    driver.findElement(By.xpath("//label[text()='Edit Dates']")).click();
 	    driver.findElement(By.xpath("//button[@onclick=\"proceed();\"]")).click();
@@ -118,10 +118,11 @@ public class RFQ {
 	    driver.findElement(By.xpath("//button[text()='Raise Addendum']")).click();
 	    
 	    driver.findElement(By.xpath("//button[text()='Close']")).click();
+	    Thread.sleep(3000);
 	    driver.get("https://training1.effigo.in/upeg/");
 	    driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
 	    driver.findElement(By.xpath("(//span[@class=\"title\"])[9]")).click();
-	    driver.findElement(By.xpath("//tbody//..//td[text()='pentaa']/../td[5]/a")).click();
+	    driver.findElement(By.xpath("//tbody//..//td[text()='phone12345']/../td[5]/a")).click();
 	   // WebElement ele=driver.findElement(By.xpath("//input[@name=\"endBidSubmissionDate\"]"));
 	   // ele.clear();
 	    //driver.findElement(By.xpath("//input[@name=\"endBidSubmissionDate\"]")).sendKeys("10-04-2025 17:23:00");
@@ -129,9 +130,9 @@ public class RFQ {
 
 	    
 	    driver.findElement(By.xpath("//button[@onclick=\"approveAddendum();\"]")).click();
-	    Alert alltt=driver.switchTo().alert();
-	   System.out.println("The alert msg : "+ alltt.getText());
-	    alltt.accept();
+//	    Alert alltt=driver.switchTo().alert();
+//	   System.out.println("The alert msg : "+ alltt.getText());
+//	    alltt.accept();
 	    
 	        driver.get("https://training1.effigo.in/portal/");
 	        driver.findElement(By.xpath("//input[@id='userNameId']")).sendKeys("deeya@gmail.com");
@@ -143,7 +144,7 @@ public class RFQ {
 		    
 	        driver.findElement(By.xpath("//div[text()='NEW']")).click();
 	        Thread.sleep(15000);
-	        driver.findElement(By.xpath("//tbody//tr//td[text()='pentaa']/../td[4]//a")).click();
+	        driver.findElement(By.xpath("//tbody//tr//td[text()='phone12345']/../td[4]//a")).click();
 	        driver.findElement(By.xpath("//label[@for=\"check0\"]")).click();
 	        
 	        
@@ -165,61 +166,36 @@ public class RFQ {
 	        driver.findElement(By.xpath("(//button[text()='Close'])[2]")).click();
 	        driver.findElement(By.xpath("//button[text()='Submit']")).click();
 	        driver.findElement(By.xpath("//button[@id='closeBtn']")).click();
-	        //driver.findElement(By.xpath("(//button[text()='Close'])[11]")).click();
-	        
-	        
-	        
-	       // driver.get("https://training1.effigo.in/upeg/");
-//			driver.findElement(By.xpath("//input[@id='userNameId']")).sendKeys("Aarav");
-//		    driver.findElement(By.xpath("//input[@id='passwordId']")).sendKeys("Bob@1234");
-//		    driver.findElement(By.xpath("//input[@id='sighInId']")).click();
-		    /*driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
-		    driver.findElement(By.xpath("(//span[@class=\"title\"])[3]")).click();
-		    driver.findElement(By.xpath("//tbody//tr//td[text()='pentaa']/../td[8]/a")).click();
-		    driver.findElement(By.xpath("//button[@onclick=\"getAdendumPage1();\"]")).click();
-		    driver.findElement(By.xpath("//label[text()='Edit Dates']")).click();
-		    driver.findElement(By.xpath("//button[@onclick=\"proceed();\"]")).click();
-		    driver.findElement(By.xpath("//input[@name=\"endBidSubmissionDate\"]")).sendKeys("10-04-2025 17:18:00");
-		    driver.findElement(By.xpath("//textarea[@name=\"comment\"]")).sendKeys("ABCD");
-		    driver.findElement(By.xpath("//button[text()='Raise Addendum']")).click();
-		    
-		    driver.findElement(By.xpath("//button[text()='Close']")).click();
-		    driver.get("https://training1.effigo.in/upeg/");
-		    driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
-		    driver.findElement(By.xpath("(//span[@class=\"title\"])[9]")).click();
-		    driver.findElement(By.xpath("//tbody//..//td[text()='pentaa']/../td[5]/a")).click();
-		    WebElement ele=driver.findElement(By.xpath("//input[@name=\"endBidSubmissionDate\"]"));
-		    ele.clear();
-		    driver.findElement(By.xpath("//input[@name=\"endBidSubmissionDate\"]")).sendKeys("10-04-2025 17:23:00");
-		    driver.findElement(By.xpath("//textarea[@id=\"comment\"]")).sendKeys("abcd");
-	
-		    
-		    driver.findElement(By.xpath("//button[@onclick=\"approveAddendum();\"]")).click();
-		    Alert alltt=driver.switchTo().alert();
-		   System.out.println("The alert msg : "+ alltt.getText());
-		    alltt.accept();*/
+	       
 		    driver.get("https://training1.effigo.in/upeg/");
 		    driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
 		    driver.findElement(By.xpath("(//span[@class=\"title\"])[3]")).click();
-		    driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
-		    driver.findElement(By.xpath("(//span[@class=\"title\"])[3]")).click();
-		    driver.findElement(By.xpath("//tbody//tr//td[text()='pentaa']/../td[8]/a")).click();
+		    //driver.findElement(By.xpath("//a[normalize-space()='Sourcing']")).click();
+		    //driver.findElement(By.xpath("(//span[@class=\"title\"])[3]")).click();
+		    Thread.sleep(30000);
+		    driver.findElement(By.xpath("//tbody//tr//td[text()='phone12345']/../td[8]/a")).click();
 		    
 		    
-		    
+//		    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//		    WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@onclick=\"startCommercial('3');\"]")));
+//		    element.click();
 		    
 		    driver.findElement(By.xpath("//a[@onclick=\"startCommercial('3');\"]")).click();
-//		    Alert alltt=driver.switchTo().alert();
-//		    alltt.accept();
-//		    driver.findElement(By.xpath("(//span[@class='fa fa-thumbs-up'])[2]")).click();
-//		    driver.findElement(By.xpath("//textarea[@id=\"priceAcceptComments\"]")).sendKeys("acds");
-//		    driver.findElement(By.xpath("//button[@id=\"priceAcceptBtn\"]")).click();
-//		    Alert allttt=driver.switchTo().alert();
-//		    allttt.accept();
-//		    driver.findElement(By.xpath("//a[@onclick=\"stopCommercial('4');\"]")).click();
-//		    Alert alllttt=driver.switchTo().alert();
-//		    alllttt.accept();
-//		    driver.findElement(By.xpath("(//button[text()='Close'])[2]")).click();
+		    alt.accept();
+		    driver.findElement(By.xpath("(//span[@class=\"fa fa-thumbs-up\"])[2]")).click();
+		    driver.findElement(By.xpath("//textarea[@id=\"priceAcceptComments\"]")).sendKeys("ABCD");
+		    driver.findElement(By.xpath("//button[@id=\"priceAcceptBtn\"]")).click();
+		    alt.accept();
+		    driver.findElement(By.xpath("//button[@onclick=\"getAllRoundsPriceComparision();\"]")).click();
+		    driver.findElement(By.xpath("//button[@onclick=\"exportToExcel();\"]")).click();
+		    driver.findElement(By.xpath("//button[@id=\"closeBtn\"]")).click();
+		    driver.findElement(By.xpath("//button[@onclick=\"newPriceComparison();\"]")).click();
+		    driver.findElement(By.xpath("//button[@onclick=\"exportToExcel();\"]")).click();
+		    driver.findElement(By.xpath("//button[@id=\"closeBtn\"]")).click();
+		    driver.findElement(By.xpath("//a[@onclick=\"stopCommercial('4');\"]")).click();
+		    alt.accept();
+		    driver.findElement(By.xpath("(//button[text()='Close'])[2]")).click();
+
 		    
 		    
 		    
